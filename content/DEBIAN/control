@@ -1,0 +1,9 @@
+Origin: XBian
+Package: xbian-package-shairplay
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: armhf
+Breaks: xbian-package-xbmc (<<2.3)
+Maintainer: Koenkk <development@xbian.org>
+Description: libshairplay for XBian
