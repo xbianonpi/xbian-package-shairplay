@@ -4,6 +4,4 @@ if [ $1 == "remove" ]; then
 
 	ldconfig > /dev/null 2>&1
 
-	[ -e /tmp/startxbmc ] && rm /tmp/startxbmc
-
 fi
