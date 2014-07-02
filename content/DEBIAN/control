@@ -1,13 +1,13 @@
 Origin: XBian
 Package: xbian-package-shairplay-6q
-Version: 1.0.6-53b3bc30
+Version: 1.0.6-53b40b75
 Section: utils
 Priority: optional
 Architecture: armhf
-Depends: 
+Depends: libao4, libavahi-compat-libdnssd1, libltdl7, libplist2
 Breaks: xbian-package-xbmc (<<2.3)
 Provides: libshairplay0, libshairplay-dev
 Conflicts: libshairplay0, libshairplay-dev, xbian-package-libshairport
 Maintainer: Koenkk <development@xbian.org>
-Description: libshairplay for XBian (imx6/wheezy)
-  (at commit src 64d59e3087f829006d091fa0d114efb50972a2bf, commit xbian repo 8b0ea61aeaf65427c49176f2d7ee5743696b1782)
+Description: libshairplay for XBian (imx6/master)
+  (at commit src 64d59e3087f829006d091fa0d114efb50972a2bf, commit xbian repo a4842d92a33367ed5268629ca4365cb4de8eac65)
