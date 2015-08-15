@@ -1,0 +1,48 @@
+diff --git a/src/lib/httpd.c b/src/lib/httpd.c
+index 7cb6fde..002e545 100644
+--- a/src/lib/httpd.c
++++ b/src/lib/httpd.c
+@@ -163,7 +163,7 @@ httpd_remove_connection(httpd_t *httpd, http_connection_t *connection)
+ 		connection->request = NULL;
+ 	}
+ 	httpd->callbacks.conn_destroy(connection->user_data);
+-	shutdown(connection->socket_fd, SHUT_WR);
++	shutdown(connection->socket_fd, SHUT_RDWR);
+ 	closesocket(connection->socket_fd);
+ 	connection->connected = 0;
+ 	httpd->open_connections--;
+@@ -338,10 +338,12 @@ httpd_thread(void *arg)
+ 
+ 	/* Close server sockets since they are not used any more */
+ 	if (httpd->server_fd4 != -1) {
++		shutdown(httpd->server_fd4, SHUT_RDWR);
+ 		closesocket(httpd->server_fd4);
+ 		httpd->server_fd4 = -1;
+ 	}
+ 	if (httpd->server_fd6 != -1) {
++		shutdown(httpd->server_fd6, SHUT_RDWR);
+ 		closesocket(httpd->server_fd6);
+ 		httpd->server_fd6 = -1;
+ 	}
+diff --git a/src/lib/netutils.c b/src/lib/netutils.c
+index 3fc8838..9f2d198 100644
+--- a/src/lib/netutils.c
++++ b/src/lib/netutils.c
+@@ -61,6 +61,8 @@ netutils_init_socket(unsigned short *port, int use_ipv6, int use_udp)
+ 	int server_fd;
+ 	int ret;
+ 
++	unsigned int yes = 1;
++
+ 	assert(port);
+ 
+ 	server_fd = socket(family, type, proto);
+@@ -68,6 +70,8 @@ netutils_init_socket(unsigned short *port, int use_ipv6, int use_udp)
+ 		goto cleanup;
+ 	}
+ 
++	setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, (const char*)&yes, sizeof(yes));
++
+ 	memset(&saddr, 0, sizeof(saddr));
+ 	if (use_ipv6) {
+ 		struct sockaddr_in6 *sin6ptr = (struct sockaddr_in6 *)&saddr;

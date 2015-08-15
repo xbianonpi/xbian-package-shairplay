@@ -7,7 +7,7 @@ Architecture: armhf
 __PKGDEPS__
 Breaks: xbian-package-xbmc (<<2.3)
 __CTRLEXTRA__
-Provides: libshairplay0, libshairplay-dev
+Provides: libshairplay0, libshairplay-dev, xbian-package-libshairport
 Conflicts: libshairplay0, libshairplay-dev, xbian-package-libshairport
 Maintainer: Koenkk <development@xbian.org>
 Description: libshairplay for XBian (__ARCHBRANCH__)
