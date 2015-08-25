@@ -1,4 +1,4 @@
 config_source_configure=./configure --prefix=/usr
-config_build_env=schroot -c armhfwheezy -p --
+config_build_env=schroot -c armhfjessiev6 -p --
 config_deb_pkgname=xbian-package-shairplay
 config_deb_depends=\${shlibs:Depends}, libao4, libavahi-compat-libdnssd1, libltdl7, libplist1 | libplist2
