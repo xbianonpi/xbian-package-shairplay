@@ -1,3 +1,2 @@
-rpi stable rpi-jessie
-rpi2 stable rpi2-jessie
-imx6 stable imx6-jessie
+rpi   stable armv6l-${config_os_version}
+armhf stable armv7l-${config_os_version}
