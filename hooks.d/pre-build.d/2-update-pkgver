@@ -1,0 +1,8 @@
+
+if [ ! -e ../config_pkgver.lock ]; then
+	[ -z "$config_version_pl" -o "$config_version" != "$config_version_old" ] && config_version_pl=1 || ((config_version_pl++))
+	echo "config_version_pl=$config_version_pl" >../config_pkgver
+	echo "config_version_old=$config_version"    >>../config_pkgver
+fi
+
+touch ../config_pkgver.lock

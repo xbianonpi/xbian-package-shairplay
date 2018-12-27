@@ -1,0 +1,4 @@
+
+cd "$XBIANARCHDIR/working"
+. ../config_pkgver
+echo "config_deb_version=$config_version.$config_version_pl-git\.$(git show --pretty=format:"%h" --quiet)" >>../config_pkgver
