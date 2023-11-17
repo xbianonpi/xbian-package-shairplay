@@ -3,7 +3,8 @@ Package: __PKGNAME__
 Version: __VERSION__
 Section: utils
 Priority: optional
-Architecture: armhf
+Architecture: __ARCHITECTURE__
+Multi-Arch: same
 __PKGDEPS__
 Breaks: xbian-package-xbmc (<<2.3)
 __CTRLEXTRA__
