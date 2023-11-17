@@ -1,0 +1,5 @@
+config_source_configure=./configure --prefix=/usr --libdir=/usr/lib/aarch64-linux-gnu
+config_build_env=schroot -c arm64${config_os_version} -p --
+#config_build_env=exec
+config_deb_pkgname=xbian-package-shairplay
+config_deb_depends=\${shlibs:Depends}, libavahi-compat-libdnssd1, libltdl7, libplist3

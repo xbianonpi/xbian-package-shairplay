@@ -1,2 +1,3 @@
 rpi   stable armv6l-${config_os_version}
 armhf stable armv7l-${config_os_version}
+arm64 stable arm64-${config_os_version}
